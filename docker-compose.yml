@@ -1,9 +1,5 @@
 version: "2"
 services:
-  app:
-    image: busybox
-    volumes:
-      - ./:/app
   db:
     image: mariadb
     expose:
@@ -11,30 +7,18 @@ services:
     environment:
       - MYSQL_DATABASE=wad
       - MYSQL_ROOT_PASSWORD=password
-  phpfpm:
-    image: bitnami/php-fpm
-    depends_on:
-      - app
-      - db
+  apache:
+    image: php:7.0-apache
     volumes:
-      - ./php.ini:/bitnami/php-fpm/conf/php.ini
-    volumes_from:
-      - app
+      - "./:/var/www/html/"
     links:
-      - db:db
-    expose:
-      - "9000"
-  nginx:
-    image: bitnami/nginx
-    depends_on:
-      - app
-    volumes:
-      - ./vhost.conf:/bitnami/nginx/conf/vhosts/app.conf
-    volumes_from:
-      - app
-    links:
-      - phpfpm:phpfpm
       - db:db
     ports:
       - "80:80"
       - "443:443"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db:db
+    ports:
+      - "8080:80"
