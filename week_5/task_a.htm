@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Task A</title>
+    </head>
+    <body>
+        <input id="userInput" type="text"></input>
+        <button id="userButton">Print</button>
+        <pre id="userResult"></pre>
+
+        <script type="text/javascript">
+        // CSS Selector
+        const $ = arg => document.querySelector(arg)
+        // Filter function to check if a number is divisible
+        const isNotDivisible = (element, index, array) => array[array.length - 1] === element || array[array.length - 1] % element !== 0
+        // Filter function to remove number 1
+        const isNotOne = number => number !== 1
+        // Normalize the array
+        const normalize = number => number === 0 ? 1 : number
+
+        $('#userButton').onclick = () => {
+          const userInput = parseInt($('#userInput').value)
+          // userInput must be more than 0
+          if (userInput < 1) return
+          // Create output array
+          const values = [...Array(userInput).keys(), userInput] // Create array
+            .filter(isNotDivisible) // Filter for elements that can't divide userInput
+            .filter(isNotOne) // Remove number 1 for edge cases
+            .map(normalize) // Swap 0s to 1
+            .reverse() // Reverse array
+          $('#userResult').innerHTML = values
+        }
+        </script>
+    </body>
+</html>

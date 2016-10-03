@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN“ ">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <title>Address Book</title>
+
+
+        <script type="text/javascript">
+            function addressBookItem (fname, lname, email) {
+                this.fname= fname;
+                this.lname = lname; 
+                this.email = email;
+            }
+
+            function appendRow() {
+                let fname = prompt("First Name")
+                let lname = prompt("Last Name")
+                let email = prompt("Email")
+            
+                let bookItem = new addressBookItem(fname, lname, email)
+                bookItem.write()
+            }
+            
+            addressBookItem.prototype.write = function(plain) {
+                let table = document.getElementById("table")
+                let adrbook = `<tr><td>${this.fname}</td><td>${this.lname}</td><td>${this.email}</td></tr>`
+            
+                let row = table.insertRow();
+
+                let cellToggle = function () {
+                    if (this.className === "bold") {
+                        this.className = ""
+                    } else {
+                        this.className = "bold"
+                    }
+                }
+
+                let cellIn = function () {
+                    this.className += " hovered"
+                }
+
+                let cellOut = function () {
+                    this.className = this.className.replace(/hovered/gi, "")
+                }
+            
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2);
+
+                cell1.onclick = cellToggle
+                cell1.onmouseover = cellIn
+                cell1.onmouseout = cellOut
+                cell2.onclick = cellToggle
+                cell2.onmouseover = cellIn
+                cell2.onmouseout = cellOut
+                cell3.onclick = cellToggle
+                cell3.onmouseover = cellIn
+                cell3.onmouseout = cellOut
+            
+                cell1.innerHTML = this.fname;
+                cell2.innerHTML = this.lname;
+                cell3.innerHTML = this.email;
+
+                if (! plain) {
+                    row.className = "green"
+                }
+            }
+        </script>
+        <style type="text/css">
+            :root #content > #right > .dose > .dosesingle,
+            :root #content > #center > .dose > .dosesingle
+            { display: none !important; }
+            table, th, td {
+                border: 1px solid black;
+            }
+            .bold { font-weight: bold; }
+            .green { color: green; }
+            .hovered { color: white; background: green; font-size: 32px; }
+        </style>
+    </head>
+    <body> 
+        <table id="table">
+            <tr class="bold">
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Email Address</td>
+            </tr>
+            <script type="text/javascript">
+                var aB1 = new addressBookItem('Roger', 'Williams', 'rwilliams@gmail.com');
+                var aB2 = new addressBookItem ('Rose', 'Schultz', 'rose_s@earthlink.net');
+                aB1.write(true);
+                aB2.write(true);
+            </script>
+        </table>
+        <button onclick="appendRow()">append new row</button>
+    </body>
+</html>

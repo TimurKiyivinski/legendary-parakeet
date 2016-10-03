@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN“ ">
+<!-- saved from url=(0123)https://blackboard.swinburne.edu.my:8443/bbcswebdav/pid-172421-dt-content-rid-523210_1/courses/201608-COS30020/example1.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <title>Address Book</title>
+
+
+        <script type="text/javascript">
+            function addressBookItem (fname, lname, email) {
+                this.fname= fname;
+                this.lname = lname;
+                this.email = email;
+            }
+
+            addressBookItem.prototype.write = function() {
+                let table = document.getElementById("table")
+                let adrbook = `<tr><td>${this.fname}</td><td>${this.lname}</td><td>${this.email}</td></tr>`
+            
+                let row = table.insertRow();
+            
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2);
+            
+                cell1.innerHTML = this.fname;
+                cell2.innerHTML = this.lname;
+                cell3.innerHTML = this.email;
+            }
+        </script>
+        <style type="text/css">
+            :root #content > #right > .dose > .dosesingle,
+            :root #content > #center > .dose > .dosesingle
+            { display: none !important; }
+            table, th, td {
+               border: 1px solid black;
+            }
+            .frow { font-weight: bold; }
+        </style>
+    </head>
+    <body> 
+        <table id="table">
+            <tr class="frow">
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Email Address</td>
+            </tr>
+            <script type="text/javascript">
+                var aB1 = new addressBookItem('Roger', 'Williams', 'rwilliams@gmail.com');
+                var aB2 = new addressBookItem ('Rose', 'Schultz', 'rose_s@earthlink.net');
+                aB1.write();
+                aB2.write();
+            </script>
+        </table>
+    </body>
+</html>
