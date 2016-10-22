@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<hotels>
+    <hotel>
+        <City>Paris</City>
+        <Name>La Standard</Name>
+        <Type>Standard</Type>
+        <Price>140</Price>
+    </hotel>
+    <hotel>
+        <City>Paris</City>
+        <Name>La Copt of Standard</Name>
+        <Type>Standard</Type>
+        <Price>139</Price>
+    </hotel>
+    <hotel>
+        <City>Paris</City>
+        <Name>La Not too Shabby</Name>
+        <Type>Budget</Type>
+        <Price>100</Price>
+    </hotel>
+    <hotel>
+        <City>Paris</City>
+        <Name>La Splendide</Name>
+        <Type>Luxury</Type>
+        <Price>620</Price>
+    </hotel>
+    <hotel>
+        <City>London</City>
+        <Name>The Rilton</Name>
+        <Type>Luxury</Type>
+        <Price>300</Price>
+    </hotel>
+    <hotel>
+        <City>London</City>
+        <Name>The Hilton</Name>
+        <Type>Standard</Type>
+        <Price>110</Price>
+    </hotel>
+    <hotel>
+        <City>London</City>
+        <Name>The Holton</Name>
+        <Type>Standard</Type>
+        <Price>100</Price>
+    </hotel>
+    <hotel>
+        <City>London</City>
+        <Name>Airbnb</Name>
+        <Type>Budget</Type>
+        <Price>10</Price>
+    </hotel>
+    <hotel>
+        <City>Amsterdam</City>
+        <Name>Leiden Hotel</Name>
+        <Type>Luxury</Type>
+        <Price>400</Price>
+    </hotel>
+    <hotel>
+        <City>Amsterdam</City>
+        <Name>Potato Apartment</Name>
+        <Type>Standard</Type>
+        <Price>180</Price>
+    </hotel>
+    <hotel>
+        <City>Amsterdam</City>
+        <Name>Potato Villa</Name>
+        <Type>Standard</Type>
+        <Price>120</Price>
+    </hotel>
+    <hotel>
+        <City>Amsterdam</City>
+        <Name>Windmill</Name>
+        <Type>Budget</Type>
+        <Price>36</Price>
+    </hotel>
+    <hotel>
+        <City>Amsterdam</City>
+        <Name>Cardboard Box</Name>
+        <Type>Budget</Type>
+        <Price>2</Price>
+    </hotel>
+    <hotel>
+        <City>Amsterdam</City>
+        <Name>Cottage</Name>
+        <Type>Budget</Type>
+        <Price>38</Price>
+    </hotel>
+</hotels>
